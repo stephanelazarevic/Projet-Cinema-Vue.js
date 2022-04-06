@@ -1,1 +1,108 @@
 @import '~bulma';
+
+.linkblue{
+  color: #2674C6;
+  border-bottom: 0px solid #0000;
+  transition: all .2s;
+}
+.linkblue:hover{
+  border-bottom: 2px solid #2674C6;
+  transition: all .2s;
+}
+
+@media (prefers-color-scheme: light) {
+  body{
+    background-color: #fff;
+    color: #000;
+  }
+  .svg{
+    filter: invert(0%) sepia(8%) saturate(0%) hue-rotate(83deg) brightness(96%) contrast(106%);
+  }
+  .cast{
+    background-color: #0001;
+  }
+  .vote{
+    background-color: #0002;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body{
+    background-color: #323130;
+    color: #fff;
+  }
+  .svg{
+    filter: invert(100%) sepia(93%) saturate(27%) hue-rotate(39deg) brightness(107%) contrast(107%);
+  }
+  .cast{
+    background-color: #fff1;
+  }
+  .vote img{
+    filter: invert(83.6%) sepia(93%) saturate(27%) hue-rotate(39deg) brightness(107%) contrast(107%)
+  }
+  .vote{
+    background-color: #fff1;
+  }
+}
+
+.infos {
+  width: 80%;
+  min-height: 450px;
+  margin: auto;
+  background-color: #42b983;
+  border-radius: 10px;
+}
+
+.affiche {
+  float: left;
+  height: 300px;
+  width: 200px;
+  margin: 10px;
+  border: 1px solid #1A1A1A;
+}
+
+.resume{
+  margin: 10px;
+  padding: 10px;
+  color: #363636;
+}
+
+.cast{
+  display: inline-block;
+  margin: 20px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.profile{
+  height: 60px;
+  width: 40px;
+  border-radius: 10px;
+}
+
+.hr{
+  background-color: #868686;
+  border-radius: 2px;
+  height: 2px;
+  margin: 0 10px;
+}
+.back{
+  background-color: #00000017;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.vote{
+  height: 50px;
+  width: 250px;
+}
+
+.vote img{
+  height: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.note{
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}

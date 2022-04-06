@@ -7,4 +7,5 @@ import router from './router'
 
 createApp(App).use(router, VueAxios, axios).mount('#app')
 
+
 require('@/assets/main.scss');

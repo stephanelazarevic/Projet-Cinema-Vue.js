@@ -1,55 +1,45 @@
 <template>
   <div class="details">
-    <div class="content">
+    <div class="content"><br>
 
-            <div class="infos"><br>
-              <h2>{{details.title}}</h2>
-              <div v-if="details.poster_path">
-                <img class="affiche" v-bind:src="'http://image.tmdb.org/t/p/w500' + details.poster_path">
-              </div><br>
-                <p class="resume">{{details.overview}}</p>
-            </div>
-    </div>
+      <div class="infos"><br>
+        <div v-if="details.poster_path">
+          <img class="affiche" v-bind:src="'http://image.tmdb.org/t/p/w500' + details.poster_path">
+        </div><br>
+        <div class="description">
+        <h2>{{details.title}}</h2>
+        <p class="resume">{{details.overview}}</p>
+        <div class="noteUser">
+          <div>
+            <b>Note des utilisateurs</b><br>
+            <img src="../img/etoileNote.png" style="width: 40px; height: 40px;">
+            <div v-bind:style="styles"></div>
+          </div>
 
-    <h2><b>Note des utilisateurs</b></h2>
-      <div style="margin: 15px; display: inline-block">
-        <div class="vote">
-          <img src="../assets/etoileNote.png" style="width: 40px; height: 40px;">
-          <div class="vote_bck" v-bind:style="styles"></div>
+          <b>{{(details.vote_average /2)}} / 5</b>
+          <br>
+          <i>{{details.vote_count}} personnes ont voté !</i>
+
         </div>
-
-        <b>{{(details.vote_average /2)}} / 5</b>
-        <br>
-        <i>{{details.vote_count}} personnes ont voté !</i>
-
+        </div>
       </div>
-      <div v-if="voted" class="back" style="margin: -40px 15px 15px 15px; float: right; text-align: center">
-        <b>Merci !</b>
-      </div>
-      <div v-if="!voted" class="back" style="margin: -40px 15px 15px 15px; float: right;  text-align: center">
-        <h3>Et vous, qu'en pensez ?</h3>
-        <span v-for="n in 5" v-bind:key="n">
-                    <img  v-if="n > note" class="note" src="../assets/etoileNote.png"   style="filter: grayscale(100%);"    v-on:click="setnote(n)">
-                    <img  v-if="n <= note" class="note" src="../assets/etoileNote.png"      v-on:click="setnote(n)">
-                </span>
-        <br>
-        <button v-on:click="postreview">Voter</button>
-      </div>
-
-
-      <h2>Casting</h2>
-      <table class="cast" v-for='credit in credits.cast' v-bind:key="credit.key">
-        <tr>
-          <td v-if="credit.profile_path"><img class="profile" v-bind:src="'http://image.tmdb.org/t/p/w500' + credit.profile_path"></td>
-          <td>
-            <b>{{ credit.name }}</b>
-            <br>
-            {{ credit.character }}
-          </td>
-        </tr>
-      </table>
-
     </div>
+
+
+    <div class="casting"><br>
+    <h2><b>Casting</b></h2><br>
+    <div class="cast" v-for='credit in credits.cast' v-bind:key="credit.key">
+      <div>
+        <div v-if="credit.profile_path"><img class="profile" v-bind:src="'http://image.tmdb.org/t/p/w500' + credit.profile_path"></div>
+        <div>
+          <b>{{ credit.name }}</b>
+          <br>
+          <i>{{ credit.character }}</i>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -100,7 +90,7 @@
       this.film = {
         id: this.$route.query.id,
       }
-
+      // this.getreviews();
       this.getdetails();
       this.getcredits();
       this.load = false;

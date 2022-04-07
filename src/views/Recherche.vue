@@ -2,7 +2,7 @@
   <div class="columns is-vcentered">
     <div class="container">
       <form v-on:submit.prevent="recherche()">
-        <div class="field is-grouped">
+        <div class="field is-grouped" style="box-shadow: 2px 3px 5px #1A1A1A; border-radius: 5px;">
 
           <input class="input is-primary" type="text" placeholder="Rechercher un film..." v-model="uneRecherche">
           <button class="button is-primary" v-on:click="recherche ">GO !</button>
@@ -15,23 +15,10 @@
         <br><h2><b>Resultats de la recherche</b></h2><br><br><br>
         <div align="center">
 
-          <!-- <table>
-
-             <tr v-for="unFilm in films" v-bind:key="unFilm.key">
-               <td width="250px"><br>{{unFilm.title}}</td>
-               <td v-if="unFilm.poster_path!=null" width="50px">
-                 <img v-bind:src="'http://image.tmdb.org/t/p/w500' + unFilm.poster_path"></td>
-               <td><br>
-                <button style="margin-left: 50px;" class="button is-primary is-small" v-on:click="voirDetails(unFilm)">Détails</button>
-               </td>
-             </tr>
-
-           </table> -->
-
           <div class="columns is-multiline is-vcentered">
-            <div class="column is-one-third is-vcentered" v-for="unFilm in films" v-bind:key="unFilm.key">
+            <div class="column is-one-quarter is-vcentered" v-for="unFilm in films" v-bind:key="unFilm.key">
               <div style="background-color: #1A1A1A;">
-                <div style="color: #42b983;"><br><b>{{unFilm.title}}</b></div><br>
+                <div class="titreFilm"><br><b><a v-on:click="voirDetails(unFilm)">{{unFilm.title}}</a></b></div><br>
                 <div v-if="unFilm.poster_path!=null" >
                   <img v-bind:src="'http://image.tmdb.org/t/p/w500' + unFilm.poster_path"></div>
                 <div><br>

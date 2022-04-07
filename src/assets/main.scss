@@ -1,5 +1,17 @@
 @import '~bulma';
 
+#nav{
+  background-color: #1A1A1A;
+}
+
+#nav a{
+  color: white;
+}
+
+.poster img{
+  box-shadow: 2px 3px 5px #1A1A1A;
+}
+
 .linkblue{
   color: #2674C6;
   border-bottom: 0px solid #0000;
@@ -8,6 +20,15 @@
 .linkblue:hover{
   border-bottom: 2px solid #2674C6;
   transition: all .2s;
+}
+
+.titreFilm a{
+  color: #FFF;
+}
+
+.titreFilm a:hover{
+  color: #42b983;
+  cursor: pointer;
 }
 
 @media (prefers-color-scheme: light) {
@@ -42,14 +63,18 @@
   .vote{
     background-color: #fff1;
   }
+
 }
 
 .infos {
   width: 80%;
   min-height: 450px;
   margin: auto;
-  background-color: #42b983;
   border-radius: 10px;
+}
+
+.description{
+  margin-top: auto;
 }
 
 .affiche {
@@ -66,16 +91,20 @@
   color: #363636;
 }
 
+.casting {
+  background-color: #1A1A1A;
+  color:#FFF;
+}
+
 .cast{
   display: inline-block;
+  width: 25%;
   margin: 20px;
   padding: 5px 10px;
   border-radius: 10px;
 }
 .profile{
-  height: 60px;
-  width: 40px;
-  border-radius: 10px;
+  width:20%;
 }
 
 .hr{
@@ -90,9 +119,12 @@
   padding: 10px;
 }
 
-.vote{
-  height: 50px;
-  width: 250px;
+.noteUser{
+  margin: 15px;
+  display: inline-block;
+  margin-top: 0;
+  margin-left: 80%;
+  color:#363636;
 }
 
 .vote img{
